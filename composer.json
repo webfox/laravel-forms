@@ -1,0 +1,31 @@
+{
+  "name": "webfox/laravel-forms",
+  "description": "A Laravel form package",
+  "require": {
+    "php": "^7.2.0",
+    "laravel/framework": "~5.7"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Matthew Hailwood",
+      "email": "matthew@webfox.co.nz"
+    },
+    {
+      "name": "Derek Kaijser",
+      "email": "derek@webfox.co.nz"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Webfox\\LaravelForms\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Webfox\\LaravelForms\\ServiceProvider"
+      ]
+    }
+  }
+}
