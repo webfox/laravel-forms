@@ -143,6 +143,10 @@ class AttributeManager
     }
 
     $value = old($fieldName, $value);
+    
+    if (is_object($value) && method_exists($value, 'getValue')) {
+      $value = $value->getValue();
+    }
 
     if ($value instanceof Collection) {
       $value = $value->modelKeys();
