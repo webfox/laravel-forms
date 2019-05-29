@@ -73,6 +73,8 @@ The following order of precedence is used for calculating values for a form
 0. Attributes from the model provided to `@form`
 0. Values passed in directly e.g. `@formField(['name' => 'name', 'value' => 'John'])`.
 
+Additionally if the final calculated value is an object and has a `getValue` method, this will be called.
+
 ### Note on _old_ input and multiple forms...
 Unfortunately, there's no way to scope Laravels `old($fieldName)` helper, meaning that if one form on a page has old input, 
 all fields on the page with the same name will be populated with the old input. 
