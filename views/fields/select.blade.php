@@ -3,17 +3,15 @@
         <option></option>@endif
     @foreach($options as $optValue => $optText)
         @if(is_array($optText))
-            @foreach($optText as $optionValues)
-                <optgroup label="{{ $optValue }}">
-                    @foreach($optionValues as $optGroupOptValue => $optGroupOptText)
-                        @if(is_array($value) ? in_array($optGroupOptValue, $value) : $optGroupOptValue === $value)
-                            <option value="{{ $optGroupOptValue }}" selected>{{ $optGroupOptText }}</option>
-                        @else
-                            <option value="{{ $optGroupOptValue }}">{{ $optGroupOptText }}</option>
-                        @endif
-                    @endforeach
-                </optgroup>
-            @endforeach
+            <optgroup label="{{ $optValue }}">
+                @foreach($optText as $optGroupOptValue => $optGroupOptText)
+                    @if(is_array($value) ? in_array($optGroupOptValue, $value) : $optGroupOptValue === $value)
+                        <option value="{{ $optGroupOptValue }}" selected>{{ $optGroupOptText }}</option>
+                    @else
+                        <option value="{{ $optGroupOptValue }}">{{ $optGroupOptText }}</option>
+                    @endif
+                @endforeach
+            </optgroup>
         @else
             @if(is_array($value) ? in_array($optValue, $value) : $optValue === $value)
                 <option value="{{ $optValue }}" selected>{{ $optText }}</option>

@@ -44,6 +44,21 @@ class AttributeManager
     return $name;
   }
 
+  public function getFieldOptions(View $view)
+  {
+    if (!$view->offsetExists('options')) return null;
+
+    $options = $view->offsetGet('options');
+
+    if ($options instanceof \Illuminate\Support\Collection) {
+      $options = $options->toArray();
+    }
+
+    return array_filter($options, function($value) {
+      return !empty($value);
+    });
+  }
+
   public function getExtraAttributes(View $view)
   {
 
