@@ -34,6 +34,7 @@ class FieldViewComposer
         $view->offsetSet('value', $this->attributeManager->getFieldValue($view));
         $view->offsetSet('type', $this->attributeManager->getFieldType($view));
         $view->offsetSet('actualName', $this->attributeManager->getFieldActualName($view));
+        $view->offsetSet('options', $this->attributeManager->getFieldOptions($view));
         $view->offsetSet('onlyTemplate', in_array($fieldType, ['checkbox']));
         $view->offsetSet('model', app(FormModelStack::class)->current());
     }
