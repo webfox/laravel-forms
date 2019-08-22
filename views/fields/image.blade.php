@@ -6,7 +6,7 @@
             <i class="zmdi zmdi-upload"></i>
             @if(isset($model) && $model->hasMedia($name))
                 <span>
-                    {{ sprintf('%s.%s', ...array_values($model->firstMedia($name)->only(['filename', 'extension']))) }} (Click to change)
+                    {{ $model->firstMedia($name)->basename }} (Click to change)
                 </span>
             @else
                 <span>{{ $placeholder ?? 'Select Image...' }}</span>
