@@ -153,6 +153,10 @@ class AttributeManager
     if ($this->formModel && !in_array($fieldName, $this->formModel->getHidden())) {
       $value = $this->formModel->getAttribute($fieldName);
     }
+    $camelFieldName = Str::camel($fieldName);
+    if ($value === null && $this->formModel && method_exists($this->formModel, $camelFieldName)) {
+      $value = $this->formModel->getAttribute($camelFieldName);
+    }
     if ($value === null && $view->offsetExists('value')) {
       $value = $view->offsetGet('value');
     }
