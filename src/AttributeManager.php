@@ -96,6 +96,11 @@ class AttributeManager
         return null;
       }
 
+      // ['data-something' => ['an', 'array']]
+      if (is_object($value) || is_array($value)) {
+        $value = json_encode($value);
+      }
+      
       return sprintf('%s="%s"', $key, htmlspecialchars($value));
     }, array_keys($extra), $extra);
 
