@@ -30,6 +30,7 @@ class FieldViewComposer
 
         // Repopulate the template
         $view->offsetSet('extraAttributes', $this->attributeManager->getExtraAttributes($view));
+        $view->offsetSet('containerAttributes', $this->attributeManager->getContainerAttributes($view));
         $view->offsetSet('fieldTemplate', $this->attributeManager->getFieldTemplate($view));
         $view->offsetSet('value', $this->attributeManager->getFieldValue($view));
         $view->offsetSet('type', $this->attributeManager->getFieldType($view));

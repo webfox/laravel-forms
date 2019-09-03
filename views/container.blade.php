@@ -2,7 +2,7 @@
     <input type="hidden" name="{{ $name }}" value="{{ $value }}">
 @else
     {!! isset($col) ? '<div class="'.$col.'">' : '' !!}
-    <div class="form-group" @if($errors->has($name)) data-server-error="{{ $errors->first($name) }}" @endif>
+    <div class="form-group" @if($errors->has($name)) data-server-error="{{ $errors->first($name) }}" @endif {!! $containerAttributes  !!}>
         @unless(($onlyTemplate ?? false) || ($label ?? true) === false)
             <label for="{{ $name }}">
                 @if($rawLabel ?? false)

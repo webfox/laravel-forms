@@ -79,8 +79,21 @@ class AttributeManager
 
     $valueRequiredBooleans = ['data-allow-clear'];
 
+    return $this->mapAttributesToString($extra, $valueRequiredBooleans);
+
+  }
+
+  public function getContainerAttributes(View $view)
+  {
+    $extra = $view->offsetExists('container') ? $view->offsetGet('container') : [];
+    return $this->mapAttributesToString($extra);
+
+  }
+
+  protected function mapAttributesToString($attributes, $valueRequiredBooleans = []) {
+
     // Convert extra properties to key="value" string
-    $attributes = array_map(function ($key, $value) use ($valueRequiredBooleans) {
+    $output = array_map(function ($key, $value) use ($valueRequiredBooleans) {
       // ['required']
       if (is_int($key) || is_string($key) && ctype_digit($key)) {
         return in_array($value, $valueRequiredBooleans) ? "{$value}=\"1\"" : $value;
@@ -100,14 +113,14 @@ class AttributeManager
       if (is_object($value) || is_array($value)) {
         $value = json_encode($value);
       }
-      
+
       return sprintf('%s="%s"', $key, htmlspecialchars($value));
-    }, array_keys($extra), $extra);
+    }, array_keys($attributes), $attributes);
 
     // Remove empty (boolean false) attributes
-    $attributes = array_filter($attributes);
+    $output = array_filter($output);
 
-    return implode(' ', $attributes);
+    return implode(' ', $output);
   }
 
   public function getFieldTemplate(View $view)
