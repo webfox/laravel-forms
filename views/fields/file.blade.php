@@ -1,5 +1,5 @@
 <div>
-    <input type="{{ $type }}" name="{{ $name }}" id="{{ $name }}File" class="inputfile {{ $class ?? '' }}" value="{{ $value }}" {!! $extraAttributes  !!}>
+    <input type="{{ $type }}" name="{{ $name }}" id="{{ $name }}File" class="inputfile {{ $fieldClasses ?? '' }}" value="{{ $value }}" {!! $extraAttributes  !!}>
     <label class="btn-secondary btn-block" for="{{ $name }}File">
         <i class="zmdi zmdi-upload"></i>
         @if(isset($model) && $model->hasMedia($name))

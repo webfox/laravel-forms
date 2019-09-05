@@ -1,6 +1,6 @@
 <div class="d-flex">
     <div class="flex-grow-1 position-relative">
-        <input type="file" name="{{ $name }}" id="{{ $name }}File" class="inputfile {{ $class ?? '' }}" value="{{ $value }}" {!! $extraAttributes  !!}
+        <input type="file" name="{{ $name }}" id="{{ $name }}File" class="inputfile {{ $fieldClasses ?? '' }}" value="{{ $value }}" {!! $extraAttributes  !!}
         accept="image/*">
         <label class="btn-block" for="{{ $name }}File">
             <i class="zmdi zmdi-upload"></i>

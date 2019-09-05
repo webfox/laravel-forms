@@ -1,5 +1,5 @@
 <div data-address-lookup="{{ $name }}" @if(\Arr::get($value, 'manual')) style="display:none;" @endif>
-    <input type="text" name="{{ $name }}[display]" class="form-control form-control-sm {{ $class ?? '' }}" value="{{ \Arr::get($value, 'display') }}" data-address-block="{{ $name }}" {!! $extraAttributes  !!}>
+    <input type="text" name="{{ $name }}[display]" class="form-control form-control-sm {{ $fieldClasses ?? '' }}" value="{{ \Arr::get($value, 'display') }}" data-address-block="{{ $name }}" {!! $extraAttributes  !!}>
     <span class="required"></span>
     <div class="enter-address-manually" style="position: absolute; right: 0;">
         <a href="#" data-enter-address-manually="{{ $name }}">Enter Manually</a>

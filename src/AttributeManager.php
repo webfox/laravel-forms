@@ -87,10 +87,30 @@ class AttributeManager
   {
     $extra = $view->offsetExists('container') ? $view->offsetGet('container') : [];
     return $this->mapAttributesToString($extra);
+  }
 
+  public function getContainerClasses(View $view)
+  {
+    $container = $view->offsetExists('container') ? $view->offsetGet('container') : [];
+    return $container['class'] ?? null;
+  }
+
+  public function getLabelClasses(View $view)
+  {
+    $label = $view->offsetExists('label') ? $view->offsetGet('label') : [];
+    return $label['class'] ?? null;
+  }
+
+
+  public function getFieldClasses(View $view)
+  {
+    $field = $view->offsetExists('extra') ? $view->offsetGet('extra') : [];
+    return $field['class'] ?? null;
   }
 
   protected function mapAttributesToString($attributes, $valueRequiredBooleans = []) {
+
+    unset($attributes['class']);
 
     // Convert extra properties to key="value" string
     $output = array_map(function ($key, $value) use ($valueRequiredBooleans) {

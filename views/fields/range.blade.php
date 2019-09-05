@@ -1,1 +1,1 @@
-<input type="range" name="{{ $name }}" class="{{ $class ?? '' }}" value="{{ $value }}" {!! $extraAttributes  !!}>
+<input type="range" name="{{ $name }}" class="{{ $fieldClasses ?? '' }}" value="{{ $value }}" {!! $extraAttributes  !!}>
