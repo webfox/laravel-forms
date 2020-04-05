@@ -2,8 +2,8 @@
 
 namespace Webfox\LaravelForms;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\Model;
 
 class FormModelStack extends Collection
 {
@@ -12,23 +12,14 @@ class FormModelStack extends Collection
         parent::__construct($items);
     }
 
-    public function push($value)
+    public function current()
     {
-        return parent::push($value);
+        return parent::last();
     }
 
-    public function pop()
+    protected function modelIdentifier(Model $model = null)
     {
-        $popped = parent::pop();
-        return $popped;
-    }
-
-    public function current() {
-      return parent::last();
-    }
-
-    protected function modelIdentifier(Model $model = null) {
-        return $model ? get_class($model) . ' (#' . $model->getKey() .')' : 'null';
+        return $model ? get_class($model) . ' (#' . $model->getKey() . ')' : 'null';
     }
 
 

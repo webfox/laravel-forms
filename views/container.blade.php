@@ -8,7 +8,7 @@
                 @if($rawLabel ?? false)
                     {!! $rawLabel !!}
                     @else
-                    {{ $label ?? str_title($name) }}
+                    {{ $label ?? \Illuminate\Support\Str::title($name) }}
                 @endif
             </label>
         @endunless
