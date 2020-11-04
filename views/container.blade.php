@@ -1,5 +1,5 @@
 @if($type === 'hidden')
-    <input type="hidden" name="{{ $name }}" value="{{ $value }}">
+    <input type="hidden" name="{{ $name }}" value="{{ $value }}" {!! $extraAttributes  !!}>
 @else
     {!! isset($col) ? '<div class="'.$col.'">' : '' !!}
     <div class="{{ $containerClasses ?? 'form-group' }}" @if($errors->has($name)) data-server-error="{{ $errors->first($name) }}" @endif {!! $containerAttributes  !!}>
