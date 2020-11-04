@@ -3,7 +3,7 @@
   "description": "A Laravel form package",
   "require": {
     "php": "^7.2.0",
-    "laravel/framework": "^5.7|^5.8|^6.0|^7.0"
+    "laravel/framework": "^5.7|^5.8|^6.0|^7.0|^8.0"
   },
   "license": "MIT",
   "authors": [
@@ -14,6 +14,10 @@
     {
       "name": "Derek Kaijser",
       "email": "derek@webfox.co.nz"
+    },
+    {
+      "name": "Surya Van Lierde",
+      "email": "surya@webfox.co.nz"
     }
   ],
   "autoload": {
